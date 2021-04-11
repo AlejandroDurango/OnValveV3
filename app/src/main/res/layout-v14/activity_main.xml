@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="12dp"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="match_parent"
+        android:layout_height="363dp"
+        app:srcCompat="@drawable/_21" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#41a400"
+        android:visibility="visible"
+        tools:visibility="visible" />
+    <Button
+        android:id="@+id/btnIniciarSesion"
+        android:layout_width="162dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center"
+
+        android:onClick="IrInicioSesion"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.862"
+        tools:ignore="MissingConstraints"
+        android:textColor="#FFFFFF"
+        android:text="Iniciar Sesión"
+        android:background="#41a400"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#41a400"
+        android:visibility="visible"
+        tools:visibility="visible" />
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="162dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="80dp"
+        android:onClick="IniciarApp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        android:textColor="#FFFFFF"
+        android:text="Registrarse"
+        android:background="#41a400"/>
+
+
+</LinearLayout>

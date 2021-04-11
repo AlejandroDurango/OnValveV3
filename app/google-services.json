@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "232257502554",
+    "firebase_url": "https://onvalve-19004.firebaseio.com",
+    "project_id": "onvalve-19004",
+    "storage_bucket": "onvalve-19004.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232257502554:android:0465d9a88d69b532678763",
+        "android_client_info": {
+          "package_name": "com.example.OnValve"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232257502554-jhd377hlh1t1fbfbovvu521ph6nmv29a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMYxvLa8C7o0izwPiPD-kPIpFIB6O_8tc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232257502554-jhd377hlh1t1fbfbovvu521ph6nmv29a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

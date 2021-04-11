@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Temporizador"
+
+    >
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="388dp"
+        android:layout_height="142dp"
+        android:layout_gravity="center"
+        android:lineSpacingExtra="10sp"
+        android:paddingTop="40dp"
+        android:text="Temporizador"
+        android:textAlignment="center"
+        android:textColor="#41A400"
+        android:textIsSelectable="false"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/barraProgreso"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="273dp"
+        android:layout_height="272dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/circle_temporizador2"
+        android:indeterminate="false"
+        android:max="100"
+        android:progress="100"
+        android:progressDrawable="@drawable/circle_temporizador1"
+        android:rotation="-90" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTiempoTemporizar"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@id/txtVistaTiempo"
+        android:text="00:00:00"
+        android:textColor="#000000"
+        android:inputType="time"
+        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtVistaTiempo"
+            android:layout_centerInParent="true"
+            android:text="00:00:00"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bttnEmpezarTemporizador"
+        android:text="Comenzar"
+        android:textColor="#ffff"
+        android:textStyle="bold"
+
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/barraProgreso"
+        android:background="#41a400" />
+
+
+
+
+</RelativeLayout>
