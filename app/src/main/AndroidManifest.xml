@@ -19,7 +19,7 @@
         <activity android:name=".Temporizador" />
         <activity android:name=".RecuperarPasswordActivity" />
         <activity android:name=".perfil_usuario" />
-        <activity android:name=".Iniciar_sesion" />
+        <activity android:name=".Modelo.Iniciar_sesion" />
         <activity android:name=".agregar_valvula" />
         <activity android:name=".MainActivity">
             <intent-filter>

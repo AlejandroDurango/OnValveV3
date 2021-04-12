@@ -13,7 +13,6 @@ public class Temporizador extends AppCompatActivity {
     private TextView temporizadorTxt;
     private Button temporizadorBtt;
     private EditText tiempoTemporizadorTxt;
-
     private CountDownTimer cuentaRegresiva;
     private long tiempoRestante = 60000;
     private boolean tiempoCorriendo;
