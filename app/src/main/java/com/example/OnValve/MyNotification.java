@@ -12,9 +12,7 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
-/**
- * Created by SAUL on 07/04/2020.
- */
+
 public class MyNotification {
     public static final String CHANNEL_ID_NOTIFICATIONS = "channel_id_notifications";
     public static final String CHANNEL_GROUP_GENERAL = "channel_group_general";
