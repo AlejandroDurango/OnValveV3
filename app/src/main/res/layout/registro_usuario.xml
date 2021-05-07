@@ -65,6 +65,12 @@
         android:hint="Ciudad" />
 
     <EditText
+        android:id="@+id/txt_documentoIdentidad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Documento" />
+
+    <EditText
         android:id="@+id/txtCorreoElectronico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

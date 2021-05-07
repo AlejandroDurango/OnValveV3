@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 public class perfil_usuario extends AppCompatActivity
 {
-    private HorizontalScrollView ContainerHorizontal;
     private LinearLayout LyoutGaraje;
     private TextView viewe;
     private static Button valvula1;
@@ -24,9 +23,8 @@ public class perfil_usuario extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.perfil_usuario);
-        ContainerHorizontal = findViewById(R.id.ContainerHorizontal);
         LyoutGaraje = findViewById(R.id.LyoutGaraje);
-        valvula1=findViewById(R.id.bttValcula1);
+        //valvula1=findViewById(R.id.bttValcula1);
     }
 
     public void IrRegistrarValvula(View view)

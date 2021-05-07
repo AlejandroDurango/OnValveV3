@@ -7,7 +7,7 @@
     android:background="#FAFAFA"
     android:orientation="vertical"
     android:padding="12dp"
-    tools:context=".Modelo.Iniciar_sesion">
+    tools:context=".Iniciar_sesion">
 
     <ImageButton
         android:id="@+id/btnInicioApp"
@@ -68,11 +68,12 @@
         android:layout_height="15dp" />
 
     <Button
+        android:id="@+id/btn_iniciarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#41A400"
         android:onClick="IniciarSesion"
-        android:text="Iniciar sesión"
+        android:text="@string/iniciar_sesion"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
