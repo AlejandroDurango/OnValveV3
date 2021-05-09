@@ -28,10 +28,10 @@ public class agregar_valvula extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agregar_valvula);
 
-        txtnombre_valvula = findViewById(R.id.txtnombre_valvula);
-        txtFabricante = findViewById(R.id.txtFabricante);
-        txtSerial = findViewById(R.id.txtSerial);
-        txtCorreoElectronicoUser = findViewById(R.id.txtCorreoElectronicoUser);
+        //txtnombre_valvula = findViewById(R.id.txtnombre_valvula);
+        //txtFabricante = findViewById(R.id.txtFabricante);
+        //txtSerial = findViewById(R.id.txtSerial);
+        //txtCorreoElectronicoUser = findViewById(R.id.txtCorreoElectronicoUser);
     }
 
 

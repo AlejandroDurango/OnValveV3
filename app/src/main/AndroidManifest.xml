@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.OnValve">
 
     <uses-sdk
         android:maxSdkVersion="30"
-        android:minSdkVersion="16" />
+        android:minSdkVersion="16"
+        tools:ignore="GradleOverrides" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/sin_t_tulo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".EstadoValvula"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="RtlEnabled">
+        <activity android:name=".EstadoValvula" />
         <activity android:name=".Temporizador" />
         <activity android:name=".RecuperarPasswordActivity" />
         <activity android:name=".perfil_usuario" />

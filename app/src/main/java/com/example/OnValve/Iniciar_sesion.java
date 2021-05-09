@@ -22,9 +22,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -36,7 +38,7 @@ public class Iniciar_sesion extends AppCompatActivity
     private EditText txtCorreoElectronico;
     private EditText txtContrasena;
     RequestQueue requestQueue;
-    final String URL = "http://localhost:3000/usuarios/iniciarSesion";
+    final String URL = "http://192.168.0.16:3000/usuarios/iniciarSesion";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,45 +47,35 @@ public class Iniciar_sesion extends AppCompatActivity
         setContentView(R.layout.activity_iniciar_sesion);
         txtCorreoElectronico = findViewById(R.id.txtCorreoElectronico);
         txtContrasena = findViewById(R.id.txtContraseña);
-        requestQueue = Volley.newRequestQueue(this);
+        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
+
+        Network network = new BasicNetwork(new HurlStack());
+
+        requestQueue = new RequestQueue(cache, network);
     }
 
-    public void stringRequest(final String correo_electronico, final String contrasena)
-    {
-        StringRequest request = new StringRequest(Request.Method.GET, URL,
-                new Response.Listener<String>() {
+    public void stringRequest(final String correo_electronico, final String contrasena) throws JSONException {
+        JSONObject parametros = new JSONObject();
+        parametros.put("correo", String.format("%s",correo_electronico));
+        parametros.put("contraseña", String.format("%s",contrasena));
+        requestQueue.start();
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, parametros,
+                new Response.Listener<JSONObject>() {
                     @SuppressLint("ShowToast")
                     @Override
-                    public void onResponse(String response) {
-                        if(!response.isEmpty()) {
-                            Intent intent = new Intent(getApplicationContext(), perfil_usuario.class);
+                    public void onResponse(JSONObject response) {
+                            Toast.makeText(Iniciar_sesion.this, response.toString(), Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), agregar_valvula.class);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(Iniciar_sesion.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-                        }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if(error instanceof ServerError){
-                            Log.i("TAG", "Server error ");
-                        }
-                        if(error instanceof NoConnectionError){
-                            Log.i("TAG", "No hay conexion a internet");
-                        }
+                        Log.e("VOLLEY", error.getMessage());
                     }
                 }
-        ){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("correo", correo_electronico);
-                parametros.put("contraseña", contrasena);
-                return parametros;
-            }
-        };
-
+        );
         this.requestQueue.add(request);
     }
 
@@ -126,8 +118,12 @@ public class Iniciar_sesion extends AppCompatActivity
         }
         else
         {
-            Toast.makeText(Iniciar_sesion.this, "Usuario o contraseña incorrectos", Toast.LENGTH_LONG);
-            stringRequest(correoElectronico, contraseña);
+            try {
+                stringRequest(correoElectronico, contraseña);
+            }
+            catch (JSONException error){
+                Log.i("TAG", "Registrarse: "+ error);
+            }
         }
     }
 

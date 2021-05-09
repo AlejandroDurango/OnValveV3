@@ -29,6 +29,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.OnValve.Modelo.Usuario;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -44,8 +45,8 @@ public class registro_usuario extends AppCompatActivity
     private EditText txtContraseña;
     private EditText txtRepetirContraseña;
     private EditText txtDocumentoIndentidad;
+    final String URL = "http://192.168.0.16:3000/usuarios/crearUsuario";
     RequestQueue requestQueue;
-    final String URL = "http://localhost:3000/usuarios/crearUsuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -60,44 +61,37 @@ public class registro_usuario extends AppCompatActivity
         txtContraseña = findViewById(R.id.txtContraseña);
         txtRepetirContraseña = findViewById(R.id.txtRepetirContraseña);
         txtDocumentoIndentidad = findViewById(R.id.txt_documentoIdentidad);
-        requestQueue = Volley.newRequestQueue(this);
+        Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024); // 1MB cap
+
+        Network network = new BasicNetwork(new HurlStack());
+
+        requestQueue = new RequestQueue(cache, network);
     }
 
-    public void stringRequest(final String documentoIdentidad, final String nombre, final String apellidos, final String correo, final String contraseña, final String id_ciudad)
-    {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                (Request.Method.POST, URL, null, new Response.Listener<JSONObject>() {
+    public void stringRequest(final String documentoIdentidad, final String nombre, final String apellidos, final String correo, final String contraseña, final String id_ciudad) throws JSONException {
+        JSONObject parametros = new JSONObject();
+        parametros.put("documento_identidad", String.format("%s", documentoIdentidad));
+        parametros.put("nombre", String.format("%s", nombre));
+        parametros.put("apellidos", String.format("%s", apellidos));
+        parametros.put("id_ciudad", String.format("%s", id_ciudad));
+        parametros.put("correo", String.format("%s", correo));
+        parametros.put("contraseña", String.format("%s", contraseña));
+        requestQueue.start();
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL, parametros, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
+                        Log.i("TAG", "onResponse: entramos");
                         Toast.makeText(registro_usuario.this,"Response: " + response.toString(), Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if(error instanceof ServerError){
-                            Log.i("TAG", "Server error ");
-                        }
-                        if(error instanceof NoConnectionError){
-                            Log.i("TAG", "No hay conexion a internet");
-                        }
+                        Log.e("VOLLEY", error.getMessage());
                     }
-                }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("documento_identidad", documentoIdentidad);
-                parametros.put("nombre", nombre);
-                parametros.put("apellidos", apellidos);
-                parametros.put("id_ciudad", id_ciudad);
-                parametros.put("correo", correo);
-                parametros.put("contraseña", contraseña);
-                return parametros;
-            }
-        };
-
-        MySingleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+                });
+        this.requestQueue.add(jsonObjectRequest);
     }
 
     public void validacion()
@@ -190,8 +184,12 @@ public class registro_usuario extends AppCompatActivity
         else
         {
             final Usuario NuevoUsuario = new Usuario(nombres, apellidos, ciudad, correoElectronico, contraseña);
-
-            stringRequest(documentoIdentidad, nombres, apellidos,correoElectronico,contraseña,ciudad);
+            try {
+                stringRequest(documentoIdentidad, nombres, apellidos,correoElectronico,contraseña,ciudad);
+            }
+            catch (JSONException error) {
+                Log.i("TAG", "Registrarse: "+ error);
+            }
 
             txtNombres.setText("");
             txtApellidos.setText("");

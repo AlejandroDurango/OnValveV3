@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,96 +9,26 @@
     android:padding="12dp"
     tools:context=".agregar_valvula">
 
-    <ImageButton
-        android:id="@+id/btnInicioApp"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/enmascarar4"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="IrPerfilUsuario"
-        android:background="#41A400"
-        android:tint="#FFFFFF"
-        app:srcCompat="@drawable/abc_vector_test"
-        tools:srcCompat="?attr/actionModeCloseDrawable" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="388dp"
-        android:layout_height="142dp"
-        android:layout_gravity="center"
-        android:lineSpacingExtra="10sp"
-        android:paddingTop="40dp"
-        android:text="Válvulas"
-        android:textAlignment="center"
-        android:textColor="#41A400"
-        android:textIsSelectable="false"
-        android:textSize="55dp"
-        android:textStyle="bold" />
+        android:text="Agregar vavula"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="228dp"
+        tools:ignore="MissingConstraints" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:text="Por favor ingrese  los datos de la valvula" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-    <EditText
-        android:id="@+id/txtnombre_valvula"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre " />
-
-    <EditText
-        android:id="@+id/txtFabricante"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Fabricante" />
-
-    <EditText
-        android:id="@+id/txtSerial"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Serial" />
-
-    <EditText
-        android:id="@+id/txtCorreoElectronicoUser"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Correo electrónico Usuario Asignado"
-        android:inputType="textEmailAddress" />
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-    <Button
-        style="@android:style/Widget.DeviceDefault.Button.Borderless"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#41a400"
-        android:onClick="RegistrarValvula"
-        android:text="Agregar Valvula"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="15dp" />
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/sin_t_tulo" />
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
