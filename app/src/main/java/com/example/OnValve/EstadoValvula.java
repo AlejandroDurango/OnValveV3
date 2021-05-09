@@ -34,7 +34,7 @@ public class EstadoValvula extends AppCompatActivity
         startActivity(new Intent(this, Temporizador.class));
     }
 
-    public void CerrarValvula(View view)
+        public void CerrarValvula(View view)
     {
         FirebaseUser usuario = auth.getCurrentUser();
     }

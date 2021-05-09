@@ -15,8 +15,10 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_height="209dp"
-        app:srcCompat="@drawable/sin_t_tulo" />
+        android:layout_height="209dp">
+
+    </ImageView>
+
 
     <TextView
         android:id="@+id/textView"
@@ -57,7 +59,7 @@
         android:id="@+id/bttValcula1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/valvula"
+
         android:onClick="IrEstadoValvula"
         android:text=""
         android:visibility="invisible" />

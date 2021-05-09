@@ -8,10 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.OnValve.MainActivity;
 import com.example.OnValve.R;
-import com.example.OnValve.RecuperarPasswordActivity;
 import com.example.OnValve.perfil_usuario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,8 +34,8 @@ public class Iniciar_sesion extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_iniciar_sesion);
-        txtCorreoElectronico = findViewById(R.id.txtCorreoElectronico);
+        setContentView(R.layout.activity_main);
+        txtCorreoElectronico = findViewById(R.id.txtCorreoElectronico2);
         txtContraseña = findViewById(R.id.txtContraseña);
         Auth = FirebaseAuth.getInstance();
     }
@@ -104,11 +102,6 @@ public class Iniciar_sesion extends AppCompatActivity
 
         }
 
-    }
-
-    public void RecuperarContraseña(View view)
-    {
-        startActivity(new Intent(this, RecuperarPasswordActivity.class));
     }
 
     public void IrAtrasInicio(View view)

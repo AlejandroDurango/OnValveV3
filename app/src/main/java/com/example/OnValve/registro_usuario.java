@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.OnValve.Modelo.Usuario;
@@ -44,7 +43,7 @@ public class registro_usuario extends AppCompatActivity
         txtNombres = findViewById(R.id.txtNombres);
         txtApellidos = findViewById(R.id.txtApellidos);
         txtCiudad = findViewById(R.id.txtCiudad);
-        txtCorreoElectronico = findViewById(R.id.txtCorreoElectronico);
+        txtCorreoElectronico = findViewById(R.id.txtCorreoElectronico2);
         txtContraseña = findViewById(R.id.txtContraseña);
         txtRepetirContraseña = findViewById(R.id.txtRepetirContraseña);
         inicializarFirebase();
